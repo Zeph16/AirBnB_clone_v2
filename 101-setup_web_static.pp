@@ -1,4 +1,4 @@
-# Script that configures Nginx server with some folders and files
+# Puppet script that configures Nginx server on a brand new machine
 
 exec {'update':
   provider => shell,
@@ -27,7 +27,7 @@ exec {'create first directory':
 exec {'create second directory':
   provider => shell,
   command  => 'sudo mkdir -p /data/web_static/shared/',
-  before   => Exec['content into html'],
+  before   => Exec['sample html'],
 }
 
 exec {'sample html':
