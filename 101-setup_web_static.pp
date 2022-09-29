@@ -27,10 +27,10 @@ exec {'create first directory':
 exec {'create second directory':
   provider => shell,
   command  => 'sudo mkdir -p /data/web_static/shared/',
-  before   => Exec['sample html'],
+  before   => Exec['content into html'],
 }
 
-exec {'sample html':
+exec {'content into html':
   provider => shell,
   command  => 'echo "Hello World!" | sudo tee /data/web_static/releases/test/index.html',
   before   => Exec['symbolic link'],
